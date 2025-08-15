@@ -1,0 +1,3 @@
+# Replace this file with the output of:
+#   conda list --explicit > environment-explicit.txt
+# from the exact machine/env used to generate your figures.

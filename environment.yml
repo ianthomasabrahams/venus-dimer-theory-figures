@@ -1,0 +1,17 @@
+name: venus-dimer
+channels:
+  - schrodinger
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy=1.26.*
+  - scipy=1.13.*
+  - matplotlib=3.8.*
+  - pandas=2.2.*
+  - numba=0.59.*
+  - jupyter
+  - qutip=5.0.3
+  - tqdm=4.66.4
+  - pymol-open-source>=2.5,<3.0
+  - pip
