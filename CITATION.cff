@@ -1,12 +1,21 @@
 cff-version: 1.2.0
-title: "Excitonic Coupling and Photon Antibunching in Venus YFP Dimers — Exact Figure Scripts"
-message: "If you use this code, please cite the Zenodo release and the paper."
+message: "If you use this software, please cite it as below."
+title: "Excitonic Coupling and Photon Antibunching in Venus YFP Dimers: Figure & Model Code"
+type: software
 authors:
   - family-names: Abrahams
     given-names: Ian T.
     orcid: "https://orcid.org/0000-0000-0000-0000"
-repository-code: "https://github.com/USER/venus-dimer-theory-figures"
+    email: "ianthomasabrahams@gmail.com"
+repository-code: "https://github.com/ianthomasabrahams/venus-dimer-theory-figures"
+license: MIT
 version: "v1.0-arxiv"
-doi: "10.5281/zenodo.XXXXXXX"
 date-released: "2025-08-15"
-keywords: ["quantum biology", "GFP", "Venus", "exciton", "antibunching", "Lindblad"]
+doi: "10.5281/zenodo.XXXXXXX"
+keywords:
+  - quantum biology
+  - GFP
+  - Venus
+  - exciton
+  - antibunching
+  - Lindblad
