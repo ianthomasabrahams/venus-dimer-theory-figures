@@ -19,4 +19,36 @@ This repository contains the **exact figure scripts** (contents unchanged, only 
 conda env create -f environment.yml
 conda activate venus-dimer
 make all
+```
 
+## Reproducibility
+- Exact scripts are preserved verbatim.
+- Saving is handled by tiny wrapper scripts using a non-interactive Matplotlib backend (`Agg`).
+- Git commit hash for this archived version (v1.0.1-arxiv): `13df46c2bf6acc57017e7925999b6ba0d8abe194` (`13df46c` short hash).
+- Consider exporting a lock file from your machine and overwrite `environment-explicit.txt`:
+  ```bash
+  conda list --explicit > environment-explicit.txt
+  ```
+
+## How to cite
+If you use this code, please cite the archived release:
+
+Abrahams, I. T. (2025). *venus-dimer-theory-figures (v1.0.1-arxiv): Exact figure scripts*.  
+Zenodo. https://doi.org/10.5281/zenodo.16882983
+
+**BibTeX**
+```bibtex
+@software{abrahams_venus_dimer_2025,
+  author  = {Abrahams, Ian T.},
+  title   = {venus-dimer-theory-figures (v1.0.1-arxiv): Exact figure scripts},
+  year    = {2025},
+  publisher = {Zenodo},
+  version = {v1.0.1-arxiv},
+  doi     = {10.5281/zenodo.16882983},
+  url     = {https://doi.org/10.5281/zenodo.16882983}
+}
+```
+
+## License
+- Code: MIT (see `LICENSE`)
+- Figures/data: CC BY 4.0 (see `LICENSE-FIGURES`)

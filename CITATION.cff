@@ -1,12 +1,6 @@
-
----
-
-## **`CITATION.cff`**
-
-```yaml
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "Excitonic Coupling and Photon Antibunching in Venus YFP Dimers: Figure & Model Code"
+title: "Venus Dimer Theory Figures (Exact Scripts + Non-interactive Saving)"
 type: software
 authors:
   - family-names: Abrahams
@@ -26,4 +20,5 @@ keywords:
   - antibunching
   - Lindblad master equation
   - open quantum systems
-
+commit: "13df46c2bf6acc57017e7925999b6ba0d8abe194"
+short-commit: "13df46c"
