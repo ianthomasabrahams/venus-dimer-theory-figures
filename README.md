@@ -1,7 +1,7 @@
 # Venus Dimer Theory Figures (Exact Scripts + Non-interactive Saving)
 *Excitonic Coupling and Photon Antibunching in Venus Yellow Fluorescent Protein Dimers: A Lindblad Master Equation Approach*
 
-[![DOI](https://zenodo.org/badge/DOI/<CONCEPT_DOI>.svg)](https://doi.org/<CONCEPT_DOI>)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16887703.svg)](https://doi.org/10.5281/zenodo.16887703)
 
 This repository contains the **exact figure scripts** (contents unchanged, only filenames cleaned) and thin, non-interactive **save-wrappers** so figures are written to disk deterministically (no GUI).
 
@@ -41,8 +41,8 @@ make all
 - Exact scripts are preserved verbatim.  
 - Saving is handled by tiny wrapper scripts using a non-interactive Matplotlib backend (`Agg`).  
 - Git commit for this archived version (v1.1.0-arxiv):  
-  - Short hash: `<SHORT_HASH>`  
-  - Full hash: `<FULL_COMMIT_HASH>` (this 40-character hash matches the `commit:` field in `CITATION.cff`).  
+  - Short hash: `45ada66`  
+  - Full hash: `45ada6694c9288de6117479710c712b48000d939` (this 40-character hash matches the `commit:` field in `CITATION.cff`).  
 - For complete reproducibility, export a lock file from your machine to overwrite `environment-explicit.txt`:  
 
 ```bash
@@ -56,7 +56,7 @@ conda list --explicit > environment-explicit.txt
 If you use this code, please cite the archived release:
 
 Abrahams, I. T. (2025). venus-dimer-theory-figures (v1.1.0-arxiv): Exact figure scripts.
-Zenodo. https://doi.org/<VERSION_DOI>
+Zenodo. https://doi.org/10.5281/zenodo.16887704
 
 BibTeX
 
@@ -66,8 +66,8 @@ BibTeX
   year      = {2025},
   publisher = {Zenodo},
   version   = {v1.1.0-arxiv},
-  doi       = {<VERSION_DOI>},
-  url       = {https://doi.org/<VERSION_DOI>}
+  doi       = {10.5281/zenodo.16887704},
+  url       = {https://doi.org/10.5281/zenodo.16887704}
 }
 
 ---
