@@ -16,7 +16,7 @@ def gamma_phi(lambda_fast_meV, tau_c_ps, T_K):
 
 # Example parameters (Venus-like)
 lambda_fast_meV = 20.0 / 8.065544  # 20 cm^-1 -> meV
-tau_c_ps = 0.5
+tau_c_ps = 1.0
 T_K = 293.0
 gamma_phi_ps_inv = gamma_phi(lambda_fast_meV, tau_c_ps, T_K)  # ps^-1
 T2_ps = 1.0 / gamma_phi_ps_inv if gamma_phi_ps_inv > 0 else np.inf
@@ -46,27 +46,35 @@ c_ops = [
     np.sqrt(gamma_sim) * ket2 * ket2.dag()
 ]
 
-# ---------- ADD: Thermal state transfer in ENERGY basis (|+> <-> |->) ----------
-# Detailed-balance rates at temperature T_K for transition energy ΔE = 2|J_meV|
-T1_ps = 1.0                               # base relaxation timescale (feel free to tune)
-gamma0_ps_inv = 1.0 / T1_ps               # ps^-1
-omega_meV = 2.0 * abs(J_meV)              # meV
-beta = 1.0 / (k_B_meV_per_K * T_K)        # 1/meV
-n_th = 1.0 / (np.exp(omega_meV * beta) - 1.0)
+# ---------- Thermal |+> <-> |-> population transfer (match other scripts) ----------
+omega_meV = 2.0 * abs(J_meV)                         # transition energy ΔE (meV)
+omega_ps_inv = omega_meV / hbar_meV_ps               # ps^-1
+k_c_ps = 1.0 / tau_c_ps                              # ps^-1
 
-gamma_down_ps_inv = gamma0_ps_inv * (n_th + 1.0)  # |-> → |+>
-gamma_up_ps_inv   = gamma0_ps_inv * (n_th)        # |+> → |->
+# Drude–Lorentz classical spectrum at ω0 (same as other scripts)
+S_cl_ps_inv = (2.0 * lambda_fast_meV * k_B_meV_per_K * T_K) / (hbar_meV_ps**2) \
+      * (k_c_ps / (k_c_ps**2 + omega_ps_inv**2))
+
+beta = 1.0 / (k_B_meV_per_K * T_K)
+n_th = 1.0 / (np.exp(beta * omega_meV) - 1.0)
+
+gamma_down_ps_inv = S_cl_ps_inv * (n_th + 1.0)       # higher -> lower
+gamma_up_ps_inv   = S_cl_ps_inv * n_th               # lower  -> higher
 
 # convert to simulation units
 gamma_down_sim = gamma_down_ps_inv * sim_unit_ps
 gamma_up_sim   = gamma_up_ps_inv   * sim_unit_ps
 
-# jump operators in the ENERGY basis
-C_down = np.sqrt(gamma_down_sim) * (ket_plus  * ket_minus.dag())  # dark to bright
-C_up   = np.sqrt(gamma_up_sim)   * (ket_minus * ket_plus.dag())   # bright to dark
+# jump operators in the ENERGY basis (|+>, |->)
+C_down = np.sqrt(gamma_down_sim) * (ket_plus  * ket_minus.dag())
+C_up   = np.sqrt(gamma_up_sim)   * (ket_minus * ket_plus.dag())
 
-# append to existing collapse ops
-c_ops += [C_down, C_up]
+# rebuild c_ops with pure dephasing + thermal transfers
+c_ops = [
+    np.sqrt(gamma_sim) * ket1 * ket1.dag(),
+    np.sqrt(gamma_sim) * ket2 * ket2.dag(),
+    C_down, C_up
+]
 # ---------- END thermal block ----------
 
 def populations_vs_time(H, psi0, meas0, meas1):
@@ -110,4 +118,25 @@ axes[1].legend(fontsize=18)
 axes[1].tick_params(labelsize=18)
 
 plt.tight_layout()
-plt.show()
+# -------- Git commit hash helper (best-effort) --------
+def _get_git_commit_short():
+    try:
+        import subprocess
+        h = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], stderr=subprocess.STDOUT)
+        return h.decode().strip()
+    except Exception:
+        return "unknown"
+
+_commit_hash = _get_git_commit_short()
+print("Git commit:", _commit_hash)
+
+# Stamp the figure subtly (bottom-right)
+try:
+    import matplotlib.pyplot as _plt
+    _fig = _plt.gcf()
+    _fig.text(0.995, 0.005, f"commit: {_commit_hash}", ha="right", va="bottom", fontsize=8, alpha=0.8)
+except Exception:
+    pass
+
+    plt.savefig(r'/mnt/data/therm_compare_proper_preps_units_dephasing_VenusTrueHomodimer_fs_rho_12_phase_half_v1.1.0-arxiv.png', dpi=300, bbox_inches='tight')
+    print('Saved:', r'/mnt/data/therm_compare_proper_preps_units_dephasing_VenusTrueHomodimer_fs_rho_12_phase_half_v1.1.0-arxiv.png')

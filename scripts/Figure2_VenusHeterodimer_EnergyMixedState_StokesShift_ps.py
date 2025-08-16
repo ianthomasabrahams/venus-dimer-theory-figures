@@ -24,9 +24,9 @@ Delta_sim = Delta_meV * scale
 J_sim = J_meV * scale
 
 # ---------- Bath / thermal parameters ----------
-lambda_fast_meV = 50.0 / 8.065544  # 50 cm^-1 -> meV
+lambda_fast_meV = 20.0 / 8.065544  # 20 cm^-1 -> meV
 tau_c_ps = 1.0
-T_K = 300.0
+T_K = 293.0
 
 # ---------- Basis states (site basis) ----------
 ket1 = basis(2, 0)   # |1>
@@ -116,7 +116,7 @@ rho0 = 0.5 * ket2dm(ket_bright) + 0.5 * ket2dm(ket_dark)
 
 # ---------- Time grids (coarse-grained over sub-ps dynamics) ----------
 # dt_sim = 1 → dt_ps ≈ 0.659 ps  (≥ 0.5 ps as requested)
-tlist_sim = np.arange(0.0, 400.0, 1.0)
+tlist_sim = np.arange(0.0, 1000, 1.0)
 tlist_ps  = tlist_sim * sim_unit_ps
 
 # ---------- E-ops: populations in the bright/dark energy basis ----------
@@ -138,4 +138,25 @@ plt.ylim(-0.02, 1.02)
 plt.grid(True, alpha=0.3)
 plt.legend(fontsize=18)
 plt.tight_layout()
-plt.show()
+# -------- Git commit hash helper (best-effort) --------
+def _get_git_commit_short():
+    try:
+        import subprocess
+        h = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], stderr=subprocess.STDOUT)
+        return h.decode().strip()
+    except Exception:
+        return "unknown"
+
+_commit_hash = _get_git_commit_short()
+print("Git commit:", _commit_hash)
+
+# Stamp the figure subtly (bottom-right)
+try:
+    import matplotlib.pyplot as _plt
+    _fig = _plt.gcf()
+    _fig.text(0.995, 0.005, f"commit: {_commit_hash}", ha="right", va="bottom", fontsize=8, alpha=0.8)
+except Exception:
+    pass
+
+    plt.savefig(r'/mnt/data/energy_mixed_state_VenusStokesShiftedHeterodimer_ps_v1.1.0-arxiv.png', dpi=300, bbox_inches='tight')
+    print('Saved:', r'/mnt/data/energy_mixed_state_VenusStokesShiftedHeterodimer_ps_v1.1.0-arxiv.png')

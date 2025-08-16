@@ -202,8 +202,28 @@ for i, (case, labeltxt, unit) in enumerate(rowdata):
     axR.set_xlabel(xlab, fontsize=18)
 
 plt.tight_layout()
-plt.show()
+# -------- Git commit hash helper (best-effort) --------
+def _get_git_commit_short():
+    try:
+        import subprocess
+        h = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], stderr=subprocess.STDOUT)
+        return h.decode().strip()
+    except Exception:
+        return "unknown"
 
+_commit_hash = _get_git_commit_short()
+print("Git commit:", _commit_hash)
+
+# Stamp the figure subtly (bottom-right)
+try:
+    import matplotlib.pyplot as _plt
+    _fig = _plt.gcf()
+    _fig.text(0.995, 0.005, f"commit: {_commit_hash}", ha="right", va="bottom", fontsize=8, alpha=0.8)
+except Exception:
+    pass
+
+    plt.savefig(r'/mnt/data/cryo_compare_dephasing_therm_2x2_phase_half_ps_ps_indie_site_energy_legend_min_t_1_2_v1.1.0-arxiv.png', dpi=300, bbox_inches='tight')
+    print('Saved:', r'/mnt/data/cryo_compare_dephasing_therm_2x2_phase_half_ps_ps_indie_site_energy_legend_min_t_1_2_v1.1.0-arxiv.png')
 # Optional logging
 print(f"Row 1: T={T1_K:.6g} K (TOP row plotted in ps; {t_top_ps[0]}–{t_top_ps[-1]} ps)")
-print(f"Row 2: T={T2_K:.6g} mK (BOTTOM row plotted in ps; {t_bottom_ps[0]}–{t_bottom_ps[-1]} ps)")
+print(f"Row 2: T={T2_K:.6g} K (BOTTOM row plotted in ps; {t_bottom_ps[0]}–{t_bottom_ps[-1]} ps)")

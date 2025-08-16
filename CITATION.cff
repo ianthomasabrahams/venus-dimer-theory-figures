@@ -1,17 +1,28 @@
-cff-version: 1.2.0
+cff-version: 1.1.0
 message: "If you use this software, please cite it as below."
 title: "Venus Dimer Theory Figures (Exact Scripts + Non-interactive Saving)"
 type: software
+
 authors:
   - family-names: Abrahams
     given-names: Ian T.
-    orcid: "https://orcid.org/0000-0000-0000-0000"
+    orcid: "https://orcid.org/0009-0005-7575-3570"
     email: "ianthomasabrahams@gmail.com"
+
 repository-code: "https://github.com/ianthomasabrahams/venus-dimer-theory-figures"
 license: MIT
-version: "v1.0.1-arxiv"
-date-released: "2025-08-15"
-doi: "10.5281/zenodo.16882983"
+version: "v1.1.0-arxiv"
+date-released: "2025-08-16"
+
+# Version DOI (specific release) — fill in after Zenodo archives the new tag
+doi: "<VERSION_DOI>"
+
+# Concept DOI (all releases) — stable across versions
+identifiers:
+  - type: doi
+    value: "<CONCEPT_DOI>"
+    description: "Concept DOI for all versions of this project"
+
 keywords:
   - quantum biology
   - GFP
@@ -20,4 +31,19 @@ keywords:
   - antibunching
   - Lindblad master equation
   - open quantum systems
-commit: "13df46c2bf6acc57017e7925999b6ba0d8abe194"
+
+# Pin the exact source state archived by Zenodo (40-char hash of the tagged commit)
+commit: "<FULL_COMMIT_HASH>"
+
+# Polished citation block picked up by GitHub/Zotero/etc.
+preferred-citation:
+  type: software
+  authors:
+    - family-names: Abrahams
+      given-names: Ian T.
+      orcid: "https://orcid.org/0009-0005-7575-3570"
+  title: "venus-dimer-theory-figures (v1.1.0-arxiv): Exact figure scripts"
+  year: 2025
+  version: "v1.1.0-arxiv"
+  doi: "<VERSION_DOI>"
+  url: "https://doi.org/<VERSION_DOI>"
