@@ -15,12 +15,12 @@ version: "v1.1.0-arxiv"
 date-released: "2025-08-16"
 
 # Version DOI (specific release) — fill in after Zenodo archives the new tag
-doi: "<VERSION_DOI>"
+doi: "10.5281/zenodo.16887704"
 
 # Concept DOI (all releases) — stable across versions
 identifiers:
   - type: doi
-    value: "<CONCEPT_DOI>"
+    value: "10.5281/zenodo.16887703"
     description: "Concept DOI for all versions of this project"
 
 keywords:
@@ -33,7 +33,7 @@ keywords:
   - open quantum systems
 
 # Pin the exact source state archived by Zenodo (40-char hash of the tagged commit)
-commit: "<FULL_COMMIT_HASH>"
+commit: "45ada6694c9288de6117479710c712b48000d939"
 
 # Polished citation block picked up by GitHub/Zotero/etc.
 preferred-citation:
@@ -45,5 +45,5 @@ preferred-citation:
   title: "venus-dimer-theory-figures (v1.1.0-arxiv): Exact figure scripts"
   year: 2025
   version: "v1.1.0-arxiv"
-  doi: "<VERSION_DOI>"
-  url: "https://doi.org/<VERSION_DOI>"
+  doi: "10.5281/zenodo.16887704"
+  url: "https://doi.org/10.5281/zenodo.16887704"
