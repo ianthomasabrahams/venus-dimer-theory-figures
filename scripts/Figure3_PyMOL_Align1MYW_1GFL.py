@@ -1,18 +1,18 @@
-# align_1myw_1gfl_v1.1.0-arxiv.py
+# align_1myw_1gfl_v1.2.0-arxiv.py
 # Headless usage (recommended):
-#   pymol -cq align_1myw_1gfl_v1.1.0-arxiv.py
+#   pymol -cq align_1myw_1gfl_v1.2.0-arxiv.py
 #
 # This script:
 #  - Fetches 1MYW and 1GFL (mmCIF)
 #  - Aligns 1MYW onto 1GFL using protein atoms
 #  - Sets a clean cartoon style with colors (Venus: olive; GFP: marine)
 #  - Prints the git commit hash (if available)
-#  - Saves: aligned_1myw_1gfl_v1.1.0-arxiv.png and aligned_1myw_1gfl_v1.1.0-arxiv.pse
+#  - Saves: aligned_1myw_1gfl_v1.2.0-arxiv.png and aligned_1myw_1gfl_v1.2.0-arxiv.pse
 
 from pymol import cmd
 import subprocess
 
-SUFFIX = "v1.1.0-arxiv"
+SUFFIX = "v1.2.0-arxiv"
 
 def _get_git_commit_short():
     try:

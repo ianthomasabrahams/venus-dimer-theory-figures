@@ -15,8 +15,8 @@ def gamma_phi(lambda_fast_meV, tau_c_ps, T_K):
     return (2.0 * lambda_fast_meV * k_B_meV_per_K * T_K) / (hbar_meV_ps**2 * k_c)  # ps^-1
 
 # Example parameters (Venus-like)
-lambda_fast_meV = 20.0 / 8.065544  # 20 cm^-1 -> meV
-tau_c_ps = 1.0
+lambda_fast_meV = 270.0 / 8.065544  # 20 cm^-1 -> meV
+tau_c_ps = 0.1
 T_K = 293.0
 gamma_phi_ps_inv = gamma_phi(lambda_fast_meV, tau_c_ps, T_K)  # ps^-1
 T2_ps = 1.0 / gamma_phi_ps_inv if gamma_phi_ps_inv > 0 else np.inf
@@ -131,12 +131,12 @@ _commit_hash = _get_git_commit_short()
 print("Git commit:", _commit_hash)
 
 # Stamp the figure subtly (bottom-right)
-try:
-    import matplotlib.pyplot as _plt
-    _fig = _plt.gcf()
-    _fig.text(0.995, 0.005, f"commit: {_commit_hash}", ha="right", va="bottom", fontsize=8, alpha=0.8)
-except Exception:
-    pass
+#try:
+#    import matplotlib.pyplot as _plt
+#    _fig = _plt.gcf()
+#    _fig.text(0.995, 0.005, f"commit: {_commit_hash}", ha="right", va="bottom", fontsize=8, alpha=0.8)
+#except Exception:
+#    pass
 
-    plt.savefig(r'/mnt/data/therm_compare_proper_preps_units_dephasing_VenusTrueHomodimer_fs_rho_12_phase_half_v1.1.0-arxiv.png', dpi=300, bbox_inches='tight')
-    print('Saved:', r'/mnt/data/therm_compare_proper_preps_units_dephasing_VenusTrueHomodimer_fs_rho_12_phase_half_v1.1.0-arxiv.png')
+plt.savefig("therm_compare_proper_preps_units_dephasing_VenusTrueHomodimer_fs_rho_12_phase_half_v1.2.0-arxiv.png", dpi=300, bbox_inches="tight")
+print("Saved: therm_compare_proper_preps_units_dephasing_VenusTrueHomodimer_fs_rho_12_phase_half_v1.2.0-arxiv.png")

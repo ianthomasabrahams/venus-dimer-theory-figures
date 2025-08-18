@@ -1,4 +1,4 @@
-cff-version: 1.1.0
+cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "Venus Dimer Theory Figures (Exact Scripts + Non-interactive Saving)"
 type: software
@@ -11,11 +11,11 @@ authors:
 
 repository-code: "https://github.com/ianthomasabrahams/venus-dimer-theory-figures"
 license: MIT
-version: "v1.1.0-arxiv"
+version: "v1.2.0-arxiv"
 date-released: "2025-08-16"
 
 # Version DOI (specific release) — fill in after Zenodo archives the new tag
-doi: "10.5281/zenodo.16887704"
+doi: "10.5281/zenodo.16887705"
 
 # Concept DOI (all releases) — stable across versions
 identifiers:
@@ -42,8 +42,8 @@ preferred-citation:
     - family-names: Abrahams
       given-names: Ian T.
       orcid: "https://orcid.org/0009-0005-7575-3570"
-  title: "venus-dimer-theory-figures (v1.1.0-arxiv): Exact figure scripts"
+  title: "venus-dimer-theory-figures (v1.2.0-arxiv): Exact figure scripts"
   year: 2025
-  version: "v1.1.0-arxiv"
-  doi: "10.5281/zenodo.16887704"
-  url: "https://doi.org/10.5281/zenodo.16887704"
+  version: "v1.2.0-arxiv"
+  doi: "10.5281/zenodo.16887705"
+  url: "https://doi.org/10.5281/zenodo.16887705"

@@ -1,12 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from qutip import basis, ket2dm, mesolve, Qobj, Options
+from qutip import basis, ket2dm, mesolve, Qobj
 
 # ---------- Constants & units ----------
 hbar_meV_ps = 0.6582119514     # ħ in meV·ps
 k_B_meV_per_K = 0.08617333262  # k_B in meV/K
 sim_unit_ps = 0.659            # 1 simulation time unit = 0.659 ps
-opts = Options(progress_bar=False)
+opts = {"progress_bar": False, "atol": 1e-10, "rtol": 1e-8, "nsteps": 10000}
 
 # ---------- Hamiltonian parameters ----------
 # Site energies relative to the mean (meV): Δ = 59.28 meV
@@ -24,8 +24,8 @@ Delta_sim = Delta_meV * scale
 J_sim = J_meV * scale
 
 # ---------- Bath / thermal parameters ----------
-lambda_fast_meV = 20.0 / 8.065544  # 20 cm^-1 -> meV
-tau_c_ps = 1.0
+lambda_fast_meV = 270.0 / 8.065544  # 20 cm^-1 -> meV
+tau_c_ps = 0.1
 T_K = 293.0
 
 # ---------- Basis states (site basis) ----------
@@ -55,7 +55,7 @@ def dipole_strength(evec):
     c1 = vec[0]
     c2 = vec[1]
     mu_tot = c1 * mu1 + c2 * mu2
-    return float(np.vdot(mu_tot, mu_tot))  # complex-safe magnitude^2
+    return float(np.real(np.vdot(mu_tot, mu_tot)))  # complex-safe magnitude^2
 
 # Compute strengths for both eigenstates as returned
 strength_0 = dipole_strength(evecs[0])
@@ -115,8 +115,8 @@ else:
 rho0 = 0.5 * ket2dm(ket_bright) + 0.5 * ket2dm(ket_dark)
 
 # ---------- Time grids (coarse-grained over sub-ps dynamics) ----------
-# dt_sim = 1 → dt_ps ≈ 0.659 ps  (≥ 0.5 ps as requested)
-tlist_sim = np.arange(0.0, 1000, 1.0)
+# dt_sim = 1 → dt_ps ≈ 0.0659 ps  (≥ 0.05 ps as requested)
+tlist_sim = np.arange(0.0, 10.0, 0.1)
 tlist_ps  = tlist_sim * sim_unit_ps
 
 # ---------- E-ops: populations in the bright/dark energy basis ----------
@@ -151,12 +151,12 @@ _commit_hash = _get_git_commit_short()
 print("Git commit:", _commit_hash)
 
 # Stamp the figure subtly (bottom-right)
-try:
-    import matplotlib.pyplot as _plt
-    _fig = _plt.gcf()
-    _fig.text(0.995, 0.005, f"commit: {_commit_hash}", ha="right", va="bottom", fontsize=8, alpha=0.8)
-except Exception:
-    pass
+#try:
+#    import matplotlib.pyplot as _plt
+#    _fig = _plt.gcf()
+#    _fig.text(0.995, 0.005, f"commit: {_commit_hash}", ha="right", va="bottom", fontsize=8, alpha=0.8)
+#except Exception:
+#    pass
 
-    plt.savefig(r'/mnt/data/energy_mixed_state_VenusStokesShiftedHeterodimer_ps_v1.1.0-arxiv.png', dpi=300, bbox_inches='tight')
-    print('Saved:', r'/mnt/data/energy_mixed_state_VenusStokesShiftedHeterodimer_ps_v1.1.0-arxiv.png')
+plt.savefig("energy_mixed_state_VenusStokesShiftedHeterodimer_ps_v1.2.0-arxiv.png", dpi=300, bbox_inches="tight")
+print("Saved: energy_mixed_state_VenusStokesShiftedHeterodimer_ps_v1.2.0-arxiv.png")

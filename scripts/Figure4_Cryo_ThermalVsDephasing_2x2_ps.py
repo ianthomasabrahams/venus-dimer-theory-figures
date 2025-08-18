@@ -138,9 +138,9 @@ def run_case(lambda_fast_cm, tau_c_ps, T_K, t_ps):
 
 # ---------- Two parameter sets (unchanged) ----------
 # Row 1:
-tau1_ps, lambda1_cm, T1_K = 1.0, 20.0, 0.01
+tau1_ps, lambda1_cm, T1_K = 0.1, 270.0, 0.01
 # Row 2:
-tau2_ps, lambda2_cm, T2_K = 1.0, 20.0, 0.1
+tau2_ps, lambda2_cm, T2_K = 0.1, 270.0, 0.1
 
 # ---------- Separate time grids (independent) ----------
 # Top row: (now in ps for plotting as requested)
@@ -215,15 +215,15 @@ _commit_hash = _get_git_commit_short()
 print("Git commit:", _commit_hash)
 
 # Stamp the figure subtly (bottom-right)
-try:
-    import matplotlib.pyplot as _plt
-    _fig = _plt.gcf()
-    _fig.text(0.995, 0.005, f"commit: {_commit_hash}", ha="right", va="bottom", fontsize=8, alpha=0.8)
-except Exception:
-    pass
+#try:
+#    import matplotlib.pyplot as _plt
+#    _fig = _plt.gcf()
+#    _fig.text(0.995, 0.005, f"commit: {_commit_hash}", ha="right", va="bottom", fontsize=8, alpha=0.8)
+#except Exception:
+#    pass
 
-    plt.savefig(r'/mnt/data/cryo_compare_dephasing_therm_2x2_phase_half_ps_ps_indie_site_energy_legend_min_t_1_2_v1.1.0-arxiv.png', dpi=300, bbox_inches='tight')
-    print('Saved:', r'/mnt/data/cryo_compare_dephasing_therm_2x2_phase_half_ps_ps_indie_site_energy_legend_min_t_1_2_v1.1.0-arxiv.png')
+plt.savefig("cryo_compare_dephasing_therm_2x2_phase_half_ps_ps_indie_site_energy_legend_min_t_1_2_v1.2.0-arxiv.png", dpi=300, bbox_inches="tight")
+print("Saved: cryo_compare_dephasing_therm_2x2_phase_half_ps_ps_indie_site_energy_legend_min_t_1_2_v1.2.0-arxiv.png")
 # Optional logging
 print(f"Row 1: T={T1_K:.6g} K (TOP row plotted in ps; {t_top_ps[0]}–{t_top_ps[-1]} ps)")
 print(f"Row 2: T={T2_K:.6g} K (BOTTOM row plotted in ps; {t_bottom_ps[0]}–{t_bottom_ps[-1]} ps)")

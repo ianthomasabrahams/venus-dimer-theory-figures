@@ -40,7 +40,7 @@ make all
 ## Reproducibility
 - Exact scripts are preserved verbatim.  
 - Saving is handled by tiny wrapper scripts using a non-interactive Matplotlib backend (`Agg`).  
-- Git commit for this archived version (v1.1.0-arxiv):  
+- Git commit for this archived version (v1.2.0-arxiv):  
   - Short hash: `45ada66`  
   - Full hash: `45ada6694c9288de6117479710c712b48000d939` (this 40-character hash matches the `commit:` field in `CITATION.cff`).  
 - For complete reproducibility, export a lock file from your machine to overwrite `environment-explicit.txt`:  
@@ -55,19 +55,19 @@ conda list --explicit > environment-explicit.txt
 
 If you use this code, please cite the archived release:
 
-Abrahams, I. T. (2025). venus-dimer-theory-figures (v1.1.0-arxiv): Exact figure scripts.
-Zenodo. https://doi.org/10.5281/zenodo.16887704
+Abrahams, I. T. (2025). venus-dimer-theory-figures (v1.2.0-arxiv): Exact figure scripts.
+Zenodo. https://doi.org/10.5281/zenodo.16887705
 
 BibTeX
 
 @software{abrahams_venus_dimer_2025,
   author    = {Abrahams, Ian T.},
-  title     = {venus-dimer-theory-figures (v1.1.0-arxiv): Exact figure scripts},
+  title     = {venus-dimer-theory-figures (v1.2.0-arxiv): Exact figure scripts},
   year      = {2025},
   publisher = {Zenodo},
-  version   = {v1.1.0-arxiv},
-  doi       = {10.5281/zenodo.16887704},
-  url       = {https://doi.org/10.5281/zenodo.16887704}
+  version   = {v1.2.0-arxiv},
+  doi       = {10.5281/zenodo.16887705},
+  url       = {https://doi.org/10.5281/zenodo.16887705}
 }
 
 ---
