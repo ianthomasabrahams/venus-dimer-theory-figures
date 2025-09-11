@@ -15,7 +15,7 @@ version: "v1.2.0-arxiv"
 date-released: "2025-08-16"
 
 # Version DOI (specific release) — fill in after Zenodo archives the new tag
-doi: "10.5281/zenodo.16887705"
+doi: "10.5281/zenodo.16892071"
 
 # Concept DOI (all releases) — stable across versions
 identifiers:
@@ -45,5 +45,5 @@ preferred-citation:
   title: "venus-dimer-theory-figures (v1.2.0-arxiv): Exact figure scripts"
   year: 2025
   version: "v1.2.0-arxiv"
-  doi: "10.5281/zenodo.16887705"
-  url: "https://doi.org/10.5281/zenodo.16887705"
+  doi: "10.5281/zenodo.16892071"
+  url: "https://doi.org/10.5281/zenodo.16892071"

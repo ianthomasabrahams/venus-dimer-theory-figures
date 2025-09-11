@@ -56,7 +56,7 @@ conda list --explicit > environment-explicit.txt
 If you use this code, please cite the archived release:
 
 Abrahams, I. T. (2025). venus-dimer-theory-figures (v1.2.0-arxiv): Exact figure scripts.
-Zenodo. https://doi.org/10.5281/zenodo.16887705
+Zenodo. https://doi.org/10.5281/zenodo.16892071
 
 BibTeX
 
@@ -66,8 +66,8 @@ BibTeX
   year      = {2025},
   publisher = {Zenodo},
   version   = {v1.2.0-arxiv},
-  doi       = {10.5281/zenodo.16887705},
-  url       = {https://doi.org/10.5281/zenodo.16887705}
+  doi       = {10.5281/zenodo.16892071},
+  url       = {https://doi.org/10.5281/zenodo.16892071}
 }
 
 ---
